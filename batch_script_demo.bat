@@ -90,6 +90,8 @@ ECHO %myInputedVar%
 
 NET STATISTICS
 
+other_script.bat
+
 
 ECHO.
 ECHO BATCH SCRIPT DEMO PROGRAM END!!!
