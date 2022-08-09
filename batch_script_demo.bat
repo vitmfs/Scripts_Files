@@ -21,6 +21,8 @@ REM This is a comment
 TITLE CHANGED BY THE BATCH PROGRAM
 SYSTEMINFO > result_of_system_info.txt
 DIR > result_of_dir.txt
+DIR /B
+:: DIR /?
 ATTRIB > result_of_attrib.txt
 ECHO %DATE%
 ECHO %TIME%
