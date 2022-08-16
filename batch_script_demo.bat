@@ -112,6 +112,8 @@ FC batch_script_demo.bat other_script.cmd > result_of_fc.txt
 :: DISKPART
 :: 
 
+FINDSTR /? > result_of_findstr_help.txt
+
 
 
 ECHO Path of Application Data is %APPDATA%
