@@ -167,9 +167,10 @@ TITLE BATCH LANGUAGE DEMONSTRATION PROGRAM
         goto :main
     )
 
-        if "%input%" equ "0" (
-        echo Thank you, have a nice day!
-        pause
+    if "%input%" equ "0" (
+        ECHO EXITING COMMANDS DEMO!
+        PAUSE
+        CLS
         goto :eof
     )
     
