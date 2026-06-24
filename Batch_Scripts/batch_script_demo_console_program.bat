@@ -5,22 +5,40 @@ TITLE BATCH LANGUAGE DEMONSTRATION PROGRAM
 :main
 
     REM PRESENT THE OPTIONS AND STORE THE CHOSEN ONE
+    SET "valid_options=1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 0"
     echo *******************************************
-    echo 1) SYSTEMINFO DEMO                        *
-    echo 2) DIR DEMO                               *
-    echo 3) ATTRIB DEMO                            *
-    echo 4) DATE DEMO                              *
-    echo 5) TIME DEMO                              *
-    echo 6) COLOR DEMO                             *
-    echo 7) VER DEMO                               *
-    echo 8) ASSOC DEMO                             *
-    echo 9) PATH DEMO                              *
-    echo 10) VOL DEMO                              *
-    echo 11) DRIVERQUERY DEMO                      *
+    echo 1)  SYSTEMINFO DEMO                        *
+    echo 2)  DIR DEMO                               *
+    echo 3)  ATTRIB DEMO                            *
+    echo 4)  DATE DEMO                              *
+    echo 5)  TIME DEMO                              *
+    echo 6)  COLOR DEMO                             *
+    echo 7)  VER DEMO                               *
+    echo 8)  ASSOC DEMO                             *
+    echo 9)  PATH DEMO                              *
+    echo 10) VOL DEMO                               *
+    echo 11) DRIVERQUERY DEMO                       *
+    echo 12) WHOAMI DEMO                            *
+    echo 13) TREE DEMO                              *
+    echo 14) SET DEMO                               *
+    echo 15) TASKLIST DEMO                          *
+    echo 16) IPCONFIG DEMO                          *
+    echo 0)  EXIT                                   *
 
-    echo Enter a number (0 to exit):
-    
-    set /p input=
+    set /p input="ENTER A NUMBER (0 to exit): "
+
+    :: Loop through valid options and re-prompt if no match
+    :check_valid_option
+    set "found="
+    for %%n in (%valid_options%) do (
+        if "%%n"=="%input%" set "found=1"
+    )
+    if not defined found (
+        echo Invalid option. Please enter one of the options above.
+        set /p input="ENTER A NUMBER (0 to exit): "
+        goto :check_valid_option
+    )
+
     :: #############################################
 
     REM SYSTEMINFO #################################
@@ -161,11 +179,70 @@ TITLE BATCH LANGUAGE DEMONSTRATION PROGRAM
     )
     :: ############################################
 
+    REM WHOAMI ####################################
     if "%input%" equ "12" (
         CLS
-        echo Do Something!
+        TITLE WHOAMI DEMO
+        WHOAMI /?
+        ECHO .
+        ECHO WHEN YOU TYPE WHOAMI AND PRESS ENTER YOU GET:
+        WHOAMI
+
         goto :main
     )
+    :: ############################################
+
+    REM TREE ######################################
+    if "%input%" equ "13" (
+        CLS
+        TITLE TREE DEMO
+        TREE /?
+        ECHO .
+        ECHO WHEN YOU TYPE TREE AND PRESS ENTER YOU GET:
+        TREE
+
+        goto :main
+    )
+    :: ############################################
+
+    REM SET #######################################
+    if "%input%" equ "14" (
+        CLS
+        TITLE SET DEMO
+        SET /?
+        ECHO .
+        ECHO WHEN YOU TYPE SET AND PRESS ENTER YOU GET:
+        SET
+
+        goto :main
+    )
+    :: ############################################
+
+    REM TASKLIST ##################################
+    if "%input%" equ "15" (
+        CLS
+        TITLE TASKLIST DEMO
+        TASKLIST /?
+        ECHO .
+        ECHO WHEN YOU TYPE TASKLIST AND PRESS ENTER YOU GET:
+        TASKLIST
+
+        goto :main
+    )
+    :: ############################################
+
+    REM IPCONFIG ##################################
+    if "%input%" equ "16" (
+        CLS
+        TITLE IPCONFIG DEMO
+        IPCONFIG /?
+        ECHO .
+        ECHO WHEN YOU TYPE IPCONFIG AND PRESS ENTER YOU GET:
+        IPCONFIG
+
+        goto :main
+    )
+    :: ############################################
 
     if "%input%" equ "0" (
         ECHO EXITING COMMANDS DEMO!
