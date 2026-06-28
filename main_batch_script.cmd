@@ -5,10 +5,11 @@ TITLE MAIN CHOICES FOR SCRIPTING DEMOS
 :main
 
     REM PRESENT THE OPTIONS AND STORE THE CHOSEN ONE
-    SET "valid_options=1 2 0"
+    SET "valid_options=1 2 3 0"
     echo *******************************************
     echo 1) COMMANDS DEMO                          *
     echo 2) GIT READ-ONLY COMMANDS DEMO            *
+    echo 3) DOCKER READ-ONLY COMMANDS DEMO         *
     echo 0) EXIT PROGRAM                           *
     
     set /p input= "Enter a number (0 to exit):"
@@ -42,6 +43,16 @@ TITLE MAIN CHOICES FOR SCRIPTING DEMOS
         TITLE GIT READ-ONLY COMMANDS DEMO
         ECHO CALLING GIT READ-ONLY COMMANDS DEMO:
         CALL ".\Batch_Scripts\batch_script_demo_git_commands.bat"
+        goto :main
+    )
+    :: #############################################
+
+    REM DOCKER READ-ONLY COMMANDS ##################
+    if "%input%" equ "3" (
+        CLS
+        TITLE DOCKER READ-ONLY COMMANDS DEMO
+        ECHO CALLING DOCKER READ-ONLY COMMANDS DEMO:
+        CALL ".\Batch_Scripts\batch_script_demo_docker_commands.bat"
         goto :main
     )
     :: #############################################
