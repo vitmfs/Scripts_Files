@@ -14,7 +14,7 @@ if errorlevel 1 (
 :main
 
     REM PRESENT THE OPTIONS AND STORE THE CHOSEN ONE
-    SET "valid_options=1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 0"
+    SET "valid_options=1 2 3 4 5 6 7 8 9 10 11 12 13 14 0"
     echo ********************************************
     echo 1)  DOCKER HELP DEMO                       *
     echo 2)  DOCKER VERSION DEMO                    *
@@ -24,13 +24,12 @@ if errorlevel 1 (
     echo 6)  DOCKER NETWORK LS DEMO                 *
     echo 7)  DOCKER VOLUME LS DEMO                  *
     echo 8)  DOCKER SYSTEM DF DEMO                  *
-    echo 10) DOCKER CONTEXT LS DEMO                 *
-    echo 11) DOCKER STATS --NO-STREAM DEMO          *
-    echo 12) DOCKER COMPOSE VERSION DEMO            *
-    echo 13) DOCKER COMPOSE PS DEMO                 *
-    echo 14) DOCKER PLUGIN LS DEMO                  *
-    echo 15) DOCKER HELP DEMO                       *
-    echo 16) DOCKER HELP RUN DEMO                   *
+    echo 9)  DOCKER CONTEXT LS DEMO                 *
+    echo 10) DOCKER STATS DEMO                      *
+    echo 11) DOCKER COMPOSE VERSION DEMO            *
+    echo 12) DOCKER COMPOSE PS DEMO                 *
+    echo 13) DOCKER PLUGIN LS DEMO                  *
+    echo 14) DOCKER RUN DEMO                        *
     echo 0)  EXIT                                   *
 
     set /p input="ENTER A NUMBER (0 to exit): "
@@ -198,74 +197,83 @@ if errorlevel 1 (
     )
     :: #############################################
 
-    REM DOCKER STATS --NO-STREAM #####################
-    if "%input%" equ "11" (
+    REM DOCKER STATS ###############################
+    if "%input%" equ "10" (
         CLS
-        TITLE DOCKER STATS --NO-STREAM DEMO
-        ECHO DOCKER STATS HELP:
+        TITLE DOCKER STATS DEMO
+        ECHO WHEN YOU TYPE "docker stats --help" AND PRESS ENTER YOU GET:
+        ECHO.
         docker stats --help
-        ECHO .
+        ECHO.
         ECHO WHEN YOU TYPE "docker stats --no-stream" AND PRESS ENTER YOU GET:
+        ECHO.
         docker stats --no-stream
+        ECHO.
+
         goto :main
     )
     :: #############################################
 
     REM DOCKER COMPOSE VERSION #######################
-    if "%input%" equ "12" (
+    if "%input%" equ "11" (
         CLS
         TITLE DOCKER COMPOSE VERSION DEMO
-        ECHO DOCKER COMPOSE VERSION HELP:
+        ECHO WHEN YOU TYPE "docker compose version --help" AND PRESS ENTER YOU GET:
+        ECHO.
         docker compose version --help
         ECHO .
         ECHO WHEN YOU TYPE "docker compose version" AND PRESS ENTER YOU GET:
+        ECHO.
         docker compose version
+        ECHO.
+
         goto :main
     )
     :: #############################################
 
     REM DOCKER COMPOSE PS ############################
-    if "%input%" equ "13" (
+    if "%input%" equ "12" (
         CLS
         TITLE DOCKER COMPOSE PS DEMO
-        ECHO DOCKER COMPOSE PS HELP:
+        ECHO WHEN YOU TYPE "docker compose ps --help" AND PRESS ENTER YOU GET:
+        ECHO.
         docker compose ps --help
-        ECHO .
+        ECHO.
         ECHO WHEN YOU TYPE "docker compose ps" AND PRESS ENTER YOU GET:
+        ECHO.
         docker compose ps
+        ECHO.
+
         goto :main
     )
     :: #############################################
 
     REM DOCKER PLUGIN LS #############################
-    if "%input%" equ "14" (
+    if "%input%" equ "13" (
         CLS
         TITLE DOCKER PLUGIN LS DEMO
-        ECHO DOCKER PLUGIN LS HELP:
+        ECHO WHEN YOU TYPE "docker plugin ls --help" AND PRESS ENTER YOU GET:
+        ECHO.
         docker plugin ls --help
-        ECHO .
+        ECHO.
         ECHO WHEN YOU TYPE "docker plugin ls" AND PRESS ENTER YOU GET:
+        ECHO.
         docker plugin ls
+        ECHO.
+
         goto :main
     )
     :: #############################################
 
-    REM DOCKER HELP ##################################
-    if "%input%" equ "15" (
-        CLS
-        TITLE DOCKER HELP DEMO
-        ECHO DOCKER HELP:
-        docker help
-        goto :main
-    )
-    :: #############################################
-
-    REM DOCKER HELP RUN ##############################
-    if "%input%" equ "16" (
+    REM DOCKER RUN #################################
+    if "%input%" equ "14" (
         CLS
         TITLE DOCKER HELP RUN DEMO
-        ECHO DOCKER HELP RUN:
-        docker help run
+        ECHO WHEN YOU TYPE "docker run --help" OR "docker help run" YOU GET:
+        ECHO.
+        docker run --help
+        ECHO.
+
         goto :main
     )
     :: #############################################
